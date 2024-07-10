@@ -31,9 +31,11 @@ if err then
 end
 
 -- Extract the names of enabled mods
+local count = 0
 local enabledMods = {}
 for _, mod in ipairs(data.mods) do
 	if mod.enabled then
+		count = count + 1
 		table.insert(enabledMods, mod.name)
 	end
 end
@@ -46,4 +48,4 @@ end
 local enabledModsString = table.concat(enabledMods, delimiter)
 
 -- Print the result
-print("Enabled mods: " .. enabledModsString)
+print("Enabled mods(" .. count .. "): " .. enabledModsString)
